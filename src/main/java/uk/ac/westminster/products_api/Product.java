@@ -1,6 +1,6 @@
 package uk.ac.westminster.products_api;
 
-public class Product {
+public abstract class Product implements Discountable {
     private Long id;
     private String name;
     private double price;
@@ -9,7 +9,6 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
-
     }
 
     public Product(){}
@@ -17,10 +16,9 @@ public class Product {
     public Long getId() {
         return id;
     }
-//
+
     public String getName(){
         return name;
-
     }
 
     public void setId(Long id) {
@@ -38,4 +36,8 @@ public class Product {
     public double getPrice(){
         return price;
     }
+
+    // No body. Product cannot answer this question,
+    // so every concrete subclass MUST answer it.
+    public abstract String getSummary();
 }
